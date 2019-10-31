@@ -179,7 +179,8 @@ function choosePlayer(player) {
 
   document.querySelectorAll(".link-block.w-inline-block").forEach((e, i) => {
     e.onclick = () => {
-      battle(player[i], ennemies[currentEnnemi])
+      chosenPlayer = player[i]
+      battle(chosenPlayer, ennemies[currentEnnemi])
     }
   })
   return sliderMask;
@@ -204,7 +205,10 @@ function battle(player, ennemi) {
         <div class="bloc-img-perso"><img src="${player.image}" alt="" class="perso-image-desktop"></div>
         <div class="bloc-information-perso"><img src="${player.image}" alt="" class="perso-image-responsive">
           <h1 class="perso-name">${player.name}</h1>
-          <div class="level-life-game perso-life"></div>
+          
+          <div class="level-life-game perso-life">
+          <div class="life-deplete"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -218,15 +222,7 @@ function battle(player, ennemi) {
     </div>
   </div>
 </div>`
-
-}
-
-function setlisteners() {
-  document.querySelectorAll(".button-choices.w-button").forEach((e, i) => {
-    e.onclick = () => {
-
-    }
-  })
+  onclickButton()
 }
 
 const shuffleArray = arr => arr
@@ -252,9 +248,11 @@ function setChoices(ennemy) {
   const choices = shuffleArray([truthy, falsys[rands[0]], falsys[rands[1]]]);
 
   var yolo = "";
-  for (let i = 0; i < 3; i++) {
-    yolo += `<button class="button-choices w-button">Hello${i}</button>`
-  }
+  choices.forEach(element => {
+
+    yolo += `<button class="button-choices w-button">${element.sentence}</button>`
+  });
+
   return yolo;
 }
 
@@ -262,3 +260,21 @@ function setChoices(ennemy) {
 {/* <a href="#" class="button-choices btn-1 w-button">Button text</a><a href="#"
 class="button-choices btn-2 w-button">Button Text</a><a href="#"
 class="button-choices btn-3 w-button">Button Text</a> */}
+
+
+function onclickButton() {
+  document.querySelectorAll(".button-choices.w-button").forEach(e => {
+    e.onclick = (event) => {
+      let btn = event.target
+      if (btn.value == true) {
+        ennemies[currentEnnemi].healthLevel = ennemies[currentEnnemi].healthLevel - 10;
+      } else {
+        chosenPlayer.healthLevel = chosenPlayer.healthLevel - 10;
+      }
+      //Update level-deplete div
+
+      console.log(chosenPlayer.healthLevel)
+    }
+  });
+}
+
