@@ -58,12 +58,102 @@ const players = [{
 
 // define ennemies objects 
 
-const ennemies = [
-    {name : ""
+const ennemies = [{
+    name: "Papy",
+    niveau: 1,
+    propositions: [
+        { sentence: "Offrir un gilet jaune", value: false },
+        { sentence: "Proposer de diviser l'addition", value: false },
+        { sentence: "Voler sa carte Navigo", value: true },
+        { sentence: "Monter dans le Kangoo", value: false },
+        { sentence: "Envoyer une grenade dispersante", value: true },
+        { sentence: "Filmer en cachette Nasser", value: false },
+        { sentence: "Proposer de niquer la mode", value: true },
+        { sentence: "Demander de rembourser Neslet", value: false },
+        { sentence: "Offrir du safran", value: false },
+    ],
+    picture: "images/papy.png",
+    health: 20,
+},
+{
+    name: "Memer",
+    niveau: 2,
+    propositions: [
+        { sentence: "Mettre un coup de tête", value: false },
+        { sentence: "Appeler la Sacem pour lui", value: true },
+        { sentence: "Essayer de l'attraper", value: false },
+        { sentence: "Sentir son haleine", value: false },
+        { sentence: "Proposer une session studio", value: false },
+        { sentence: "Demander les streams d'Odin", value: true },
+        { sentence: "Réclamer 2174¥ (18€)", value: true },
+        { sentence: "Acheter un castor", value: false },
+        { sentence: "Mettre du Khaled", value: false },
+        { sentence: "Lui offrir une statut de Bouddha", value: true },
+        { sentence: "L'attacher dans un cachot", value: false },
+        { sentence: "Ah l'ancien", value: false },
+    ],
+    picture: "images/Memer.png",
+    health: 40,
+},
+{
+    name: "Syrine",
+    niveau: 3,
+    propositions: [
+        { sentence: "Envoyer un bouton de fièvre", value: true },
+        { sentence: "Proposer un dîner", value: false },
+        { sentence: "Acheter du Palace", value: false },
+        { sentence: "Demander la sortie de son 1er film", value: true },
+        { sentence: "Proposer un apéro sans babs", value: false },
+        { sentence: "Lui demander d'offrir de la sap à Rodela", value: false },
+        { sentence: "Appeler SOS père battu", value: true },
+        { sentence: "Proposer un week-end avec Papy", value: false },
+        { sentence: "Lui demander un docu Netflix", value: false },
+        { sentence: "Demander des nouvelles d'Akim et son job perdu", value: true },
+        { sentence: "Offrir du Célio", value: false },
+        { sentence: "Dire Bonjour Frérot", value: false },
+    ],
+    picture: "images/Syrine.png",
+    health: 50,
+},
+{
+    name: "Zayjeul",
+    niveau: 4,
+    propositions: [
+        { sentence: "Demander des nouvelles de Shanon", value: false },
+        { sentence: "Demander de répeter: je suis passé chez Sosh", value: true },
+        { sentence: "Demander des nouvelles du poulailler", value: false },
 
-    }
+        { sentence: "Demander à Neslet de le stranguler", value: true },
+        { sentence: "Proposer un voyage sans jumper à la dernière minute", value: false },
+        { sentence: "Lui trouver un appart", value: false },
+
+        { sentence: "Voir son historique Google", value: true },
+        { sentence: "Proposer un vol direct pour Dubai", value: false },
+        { sentence: "Proposer d'installer des placos", value: false },
+
+        { sentence: "Demander de soulever ses cheveux", value: true },
+        { sentence: "Proposer un séjour au Vietnam", value: false },
+        { sentence: "Proposer un vol aller 10€ pour Tunis avec Groshien", value: false },
+    ],
+    picture: "images/Zayjeul.png",
+    health: 60,
+},
+{
+    name: "Sneazz",
+    niveau: 5,
+    propositions: [
+        { sentence: "Ah l'ancien", value: false },
+        { sentence: "Ah l'ancien", value: false },
+        { sentence: "Ah l'ancien", value: false },
+        { sentence: "Ah l'ancien", value: true },
+        { sentence: "Ah l'ancien", value: true },
+        { sentence: "Ah l'ancien", value: true },
+    ],
+    picture: "images/Sneazzy.png",
+    health: 100,
+},
+
 ]
-
 
 // function level
 
@@ -95,6 +185,6 @@ function choosePlayer(player) {
 
 // function battle
 
-function battle (player, ennemi) {
+function battle(player, ennemi) {
 
 }
