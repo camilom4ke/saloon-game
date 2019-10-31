@@ -222,23 +222,40 @@ function battle(player, ennemi) {
 }
 
 function setlisteners() {
-  
+  document.querySelectorAll(".button-choices.w-button").forEach((e, i) => {
+    e.onclick = () => {
 
-
+    }
+  })
 }
 
+const shuffleArray = arr => arr
+  .map(a => [Math.random(), a])
+  .sort((a, b) => a[0] - b[0])
+  .map(a => a[1]);
 
-function setChoices(ennemie) {
 
+function setChoices(ennemy) {
+  const rands = [];
+  const getRadomValue = max => Math.floor(Math.random() * max);
 
-  // choisir aléatoirement 3 possibilités;
+  const falsys = ennemy.propositions.filter(p => !Boolean(p.value));
+  const truthys = ennemy.propositions.filter(p => Boolean(p.value));
 
+  const truthy = truthys[getRadomValue(truthys.length)];
 
-  let str = "";
+  do {
+    let tmp = getRadomValue(falsys.length);
+    if (!rands.includes(tmp)) rands.push(tmp);
+  } while (rands.length < 2);
+
+  const choices = shuffleArray([truthy, falsys[rands[0]], falsys[rands[1]]]);
+
+  var yolo = "";
   for (let i = 0; i < 3; i++) {
-    str += `<button>Hello${i}</button>`
+    yolo += `<button class="button-choices w-button">Hello${i}</button>`
   }
-  return str;
+  return yolo;
 }
 
 
