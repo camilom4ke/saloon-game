@@ -194,6 +194,7 @@ choosePlayer(players);
 
 function battle(player, ennemi) {
   mainContainer.innerHTML = `<div class="battle scene-2">
+  <audio id="song" autoplay src="songs/duel.mp3" loop></audio>
     <div class="battle-deck">
       <div class="enemi-side">
         <div class="bloc-information-enemi">
@@ -271,7 +272,6 @@ function onclickButton() {
         chosenPlayer.healthLevel = chosenPlayer.healthLevel - 10;
         healthBarPlayer.style.width = chosenPlayer.healthLevel * 5 + "px";
       }
-
       nextEnnemy()
       gameOver()
     }
@@ -305,5 +305,11 @@ function healthUpdate() {
   var healthBarPlayer = document.querySelector(".life-deplete.player");
 
   healthBarPlayer.style.width = chosenPlayer.healthLevel * 5 + "px";
+
+}
+
+function updateChoices() {
+  var btnContainer = document.querySelector("btn-choices");
+  btnContainer.innerHTML = setChoices(ennemies[currentEnnemi]);
 
 }
