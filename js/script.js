@@ -198,7 +198,7 @@ function battle(player, ennemi) {
       <div class="enemi-side">
         <div class="bloc-information-enemi">
           <h1 class="enemi-name">Level ${ennemi.niveau} : ${ennemi.name}</h1>
-          <div class="level-life-game enemi-life"></div><img src="${ennemi.picture}" alt="" class="enemi-image">
+          <div class="level-life-game enemi-life"><div class="life-deplete"></div></div><img src="${ennemi.picture}" alt="" class="enemi-image">
         </div>
       </div>
       <div class="perso-side">
@@ -247,20 +247,14 @@ function setChoices(ennemy) {
 
   const choices = shuffleArray([truthy, falsys[rands[0]], falsys[rands[1]]]);
 
-  var yolo = "";
+  var buttonCreate = "";
   choices.forEach(element => {
 
-    yolo += `<button class="button-choices w-button">${element.sentence}</button>`
+    buttonCreate += `<button class="button-choices w-button">${element.sentence}</button>`
   });
 
-  return yolo;
+  return buttonCreate;
 }
-
-
-{/* <a href="#" class="button-choices btn-1 w-button">Button text</a><a href="#"
-class="button-choices btn-2 w-button">Button Text</a><a href="#"
-class="button-choices btn-3 w-button">Button Text</a> */}
-
 
 function onclickButton() {
   document.querySelectorAll(".button-choices.w-button").forEach(e => {
@@ -272,6 +266,9 @@ function onclickButton() {
         chosenPlayer.healthLevel = chosenPlayer.healthLevel - 10;
       }
       //Update level-deplete div
+      document.querySelector(".level-life-game position")
+
+      console.log(document.querySelector(".level-life-game position"))
 
       console.log(chosenPlayer.healthLevel)
     }
