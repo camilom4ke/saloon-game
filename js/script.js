@@ -139,8 +139,8 @@ const ennemies = [{
   health: 60,
 },
 {
-  name: "Sneazz",
-  niveau: 5,
+  name: "Sneazz le Roi Chien",
+  niveau: "Boss ultime",
   propositions: [
     { sentence: "Ah l'ancien", value: false },
     { sentence: "Ah l'ancien", value: false },
@@ -280,14 +280,17 @@ function onclickButton() {
 }
 
 function nextEnnemy() {
-  if (ennemies[currentEnnemi].health == 0){
-  currentEnnemi += 1;
+  console.log(ennemies[currentEnnemi].health)
+  if (ennemies[currentEnnemi].health <= 0) {
+    currentEnnemi += 1;
+    battle(chosenPlayer, ennemies[currentEnnemi]);
+    healthUpdate()
   }
 }
 
 function gameOver() {
-if (chosenPlayer.healthLevel == 0)
-  return mainContainer.innerHTML = `<div class="game-over">
+  if (chosenPlayer.healthLevel == 0)
+    return mainContainer.innerHTML = `<div class="game-over">
   <div>
     <h1 class="heading title-over">Game Over l'ancien</h1>
   </div>
@@ -296,4 +299,11 @@ if (chosenPlayer.healthLevel == 0)
       class="button w-button btn-over">Retenter sa chance</a><a data-w-id="61aca8fe-b74a-ab59-08f0-0bd1d773ee9e"
       href="index.html" class="button w-button btn-over">Sortir du Saloon</a></div>
 </div>`
+}
+
+function healthUpdate() {
+  var healthBarPlayer = document.querySelector(".life-deplete.player");
+
+  healthBarPlayer.style.width = chosenPlayer.healthLevel * 5 + "px";
+
 }
