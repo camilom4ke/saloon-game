@@ -274,6 +274,7 @@ function onclickButton() {
       }
       nextEnnemy()
       gameOver()
+      // updateChoices()
     }
   });
   setChoices(ennemies[currentEnnemi]);
@@ -310,6 +311,5 @@ function healthUpdate() {
 
 function updateChoices() {
   var btnContainer = document.querySelector("btn-choices");
-  btnContainer.innerHTML = setChoices(ennemies[currentEnnemi]);
-
+  btnContainer.innerHTML = `${setChoices(ennemies[currentEnnemi])}`;
 }
