@@ -55,7 +55,6 @@ const players = [{
 }
 ]
 
-
 // define ennemies objects 
 
 const ennemies = [{
@@ -178,10 +177,12 @@ function choosePlayer(player) {
   });
 
   document.querySelectorAll(".link-block.w-inline-block").forEach((e, i) => {
+
     e.onclick = () => {
       chosenPlayer = player[i]
       battle(chosenPlayer, ennemies[currentEnnemi])
     }
+
   })
   return sliderMask;
 
@@ -265,6 +266,8 @@ function onclickButton() {
   document.querySelectorAll(".button-choices.w-button").forEach(e => {
     e.onclick = (event) => {
       let btn = event.target
+      updateChoices(ennemies[currentEnnemi]);
+      onclickButton()
       if (btn.value === "true") {
         ennemies[currentEnnemi].health = ennemies[currentEnnemi].health - 10;
         healthBarEnnemy.style.width = ennemies[currentEnnemi].health * 5 + "px";
@@ -277,7 +280,7 @@ function onclickButton() {
       // updateChoices()
     }
   });
-  setChoices(ennemies[currentEnnemi]);
+
 }
 
 function nextEnnemy() {
@@ -309,7 +312,7 @@ function healthUpdate() {
 
 }
 
-function updateChoices() {
-  var btnContainer = document.querySelector("btn-choices");
-  btnContainer.innerHTML = `${setChoices(ennemies[currentEnnemi])}`;
+function updateChoices(arr) {
+  var btnContainer = document.querySelector(".btn-choices");
+  btnContainer.innerHTML = `${setChoices(arr)}`;
 }
