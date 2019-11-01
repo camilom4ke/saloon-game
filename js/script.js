@@ -8,8 +8,8 @@ const players = [{
   disponibility: "Malheureusement disponible",
   disponibilityClass: "perso-1-available",
   disponibilityStatus: true,
-  image: "images/brajer.png",
-  srcset: "images/brajer.png 500w, images/Brajer.png 800w",
+  image: "./images/brajer.png",
+  srcset: "./images/brajer.png 500w, ./images/Brajer.png 800w",
   quote: "Hey, je prépare un nouveau festoch, tu viens ?",
   healthStatus: "faible",
   healthLevel: 20,
@@ -20,8 +20,8 @@ const players = [{
   disponibility: "disponible",
   disponibilityClass: "perso-1-available",
   disponibilityStatus: true,
-  image: "images/metiah.png",
-  srcset: "images/metiah.png 500w, images/metiah.png 800w",
+  image: "./images/metiah.png",
+  srcset: "./images/metiah.png 500w, ./images/metiah.png 800w",
   quote: "Qui a mangé mon flan coco pendant que je dormais ?",
   healthStatus: "modérée",
   healthLevel: 50,
@@ -33,8 +33,8 @@ const players = [{
   disponibilityClass: "non-dispo",
   disponibilityStatus: false,
   conditionUnlock: "vaincre le roi chien",
-  image: "images/grillz.png",
-  srcset: "images/grillz.png 500w, images/grillz.png 800w",
+  image: "./images/grillz.png",
+  srcset: "./images/grillz.png 500w, ./images/grillz.png 800w",
   quote: "Alfred ? T'es où ? Quelqu'un a vu mon assistant ?",
   healthStatus: "élévée",
   healthLevel: 70,
@@ -46,8 +46,8 @@ const players = [{
   disponibilityClass: "non-dispo",
   disponibilityStatus: false,
   conditionUnlock: "vaincre le roi chien avec Brajer",
-  image: "images/nasser.png",
-  srcset: "images/nasser.png 500w, images/Nasser.png 800w",
+  image: "./images/nasser.png",
+  srcset: "./images/nasser.png 500w, ./images/Nasser.png 800w",
   quote: "Hey Snedz, c'est qui le boss de la night ?",
   healthStatus: "légendaire",
   healthLevel: 100,
@@ -72,7 +72,7 @@ const ennemies = [{
     { sentence: "Demander de rembourser Neslet", value: false },
     { sentence: "Offrir du safran", value: false },
   ],
-  picture: "images/papy.png",
+  picture: "./images/papy.png",
   health: 20,
 },
 {
@@ -92,7 +92,7 @@ const ennemies = [{
     { sentence: "L'attacher dans un cachot", value: false },
     { sentence: "Ah l'ancien", value: false },
   ],
-  picture: "images/Memer.png",
+  picture: "./images/Memer.png",
   health: 40,
 },
 {
@@ -112,7 +112,7 @@ const ennemies = [{
     { sentence: "Offrir du Célio", value: false },
     { sentence: "Dire Bonjour Frérot", value: false },
   ],
-  picture: "images/Syrine.png",
+  picture: "./images/Syrine.png",
   health: 50,
 },
 {
@@ -135,7 +135,7 @@ const ennemies = [{
     { sentence: "Proposer un séjour au Vietnam", value: false },
     { sentence: "Proposer un vol aller 10€ pour Tunis avec Groshien", value: false },
   ],
-  picture: "images/Zayjeul.png",
+  picture: "./images/Zayjeul.png",
   health: 60,
 },
 {
@@ -149,7 +149,7 @@ const ennemies = [{
     { sentence: "Ah l'ancien", value: true },
     { sentence: "Ah l'ancien", value: true },
   ],
-  picture: "images/Sneazzy.png",
+  picture: "./images/Sneazzy.png",
   health: 100,
 },
 
@@ -194,7 +194,7 @@ choosePlayer(players);
 
 function battle(player, ennemi) {
   mainContainer.innerHTML = `<div class="battle scene-2">
-  <audio id="song" autoplay src="songs/duel.mp3" loop></audio>
+  <audio id="song" autoplay src="./songs/duel.mp3" loop></audio>
     <div class="battle-deck">
       <div class="enemi-side">
         <div class="bloc-information-enemi">
@@ -295,7 +295,7 @@ function gameOver() {
   <div>
     <h1 class="heading title-over">Game Over l'ancien</h1>
   </div>
-  <div class="over-image"><img src="images/gamer-over.gif" alt=""></div>
+  <div class="over-image"><img src="./images/gamer-over.gif" alt=""></div>
   <div class="div-block"><a data-w-id="61aca8fe-b74a-ab59-08f0-0bd1d773ee9e" href="choose-player.html"
       class="button w-button btn-over">Retenter sa chance</a><a data-w-id="61aca8fe-b74a-ab59-08f0-0bd1d773ee9e"
       href="index.html" class="button w-button btn-over">Sortir du Saloon</a></div>
