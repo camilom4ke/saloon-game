@@ -198,7 +198,7 @@ function battle(player, ennemi) {
       <div class="enemi-side">
         <div class="bloc-information-enemi">
           <h1 class="enemi-name">Level ${ennemi.niveau} : ${ennemi.name}</h1>
-          <div class="level-life-game enemi-life"><div class="life-deplete"></div></div><img src="${ennemi.picture}" alt="" class="enemi-image">
+          <div class="level-life-game enemi-life"><div class="life-deplete ennemy"></div></div><img src="${ennemi.picture}" alt="" class="enemi-image">
         </div>
       </div>
       <div class="perso-side">
@@ -207,7 +207,7 @@ function battle(player, ennemi) {
           <h1 class="perso-name">${player.name}</h1>
           
           <div class="level-life-game perso-life">
-          <div class="life-deplete"></div>
+          <div class="life-deplete player"></div>
           </div>
         </div>
       </div>
@@ -250,28 +250,50 @@ function setChoices(ennemy) {
   var buttonCreate = "";
   choices.forEach(element => {
 
-    buttonCreate += `<button class="button-choices w-button">${element.sentence}</button>`
+    buttonCreate += `<button class="button-choices w-button" value="${element.value}">${element.sentence}</button>`
   });
 
   return buttonCreate;
 }
 
 function onclickButton() {
+  var healthBarPlayer = document.querySelector(".life-deplete.player");
+  var healthBarEnnemy = document.querySelector(".life-deplete.ennemy");
+
+
   document.querySelectorAll(".button-choices.w-button").forEach(e => {
     e.onclick = (event) => {
       let btn = event.target
-      if (btn.value == true) {
-        ennemies[currentEnnemi].healthLevel = ennemies[currentEnnemi].healthLevel - 10;
+      if (btn.value === "true") {
+        ennemies[currentEnnemi].health = ennemies[currentEnnemi].health - 10;
+        healthBarEnnemy.style.width = ennemies[currentEnnemi].health * 5 + "px";
       } else {
         chosenPlayer.healthLevel = chosenPlayer.healthLevel - 10;
+        healthBarPlayer.style.width = chosenPlayer.healthLevel * 5 + "px";
       }
-      //Update level-deplete div
-      document.querySelector(".level-life-game position")
 
-      console.log(document.querySelector(".level-life-game position"))
-
-      console.log(chosenPlayer.healthLevel)
+      nextEnnemy()
+      gameOver()
     }
   });
+  setChoices(ennemies[currentEnnemi]);
 }
 
+function nextEnnemy() {
+  if (ennemies[currentEnnemi].health == 0){
+  currentEnnemi += 1;
+  }
+}
+
+function gameOver() {
+if (chosenPlayer.healthLevel == 0)
+  return mainContainer.innerHTML = `<div class="game-over">
+  <div>
+    <h1 class="heading title-over">Game Over l'ancien</h1>
+  </div>
+  <div class="over-image"><img src="images/gamer-over.gif" alt=""></div>
+  <div class="div-block"><a data-w-id="61aca8fe-b74a-ab59-08f0-0bd1d773ee9e" href="choose-player.html"
+      class="button w-button btn-over">Retenter sa chance</a><a data-w-id="61aca8fe-b74a-ab59-08f0-0bd1d773ee9e"
+      href="index.html" class="button w-button btn-over">Sortir du Saloon</a></div>
+</div>`
+}

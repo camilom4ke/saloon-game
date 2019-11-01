@@ -379,9 +379,22 @@
   background-color: #864e19;
 }
 
+.title-over {
+  color: white;
+}
+
+.over-image {
+  text-align: center;
+  margin: 60px 0px;
+}
+
 .heading-5 {
   font-family: Rye, sans-serif;
   color: #fff;
+}
+
+.game-over {
+  margin-top: 70px;
 }
 
 .button-choices {
@@ -428,6 +441,12 @@
 
 .battle-deck {
   height: 100%;
+}
+
+.btn-over {
+  margin: 40px;
+  color: white;
+  border-color: white;
 }
 
 .enemi-name {
@@ -490,7 +509,7 @@
 
   .perso-side {
     position: static;
-    height: 25%;
+    height: auto;
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -531,7 +550,6 @@
 
   .bloc-information-perso {
     position: static;
-    margin-top: -8%;
     -webkit-box-flex: 0;
     -webkit-flex: 0 auto;
     -ms-flex: 0 auto;
